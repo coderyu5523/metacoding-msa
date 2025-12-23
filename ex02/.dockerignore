@@ -1,0 +1,17 @@
+.gradle
+build
+bin
+.git
+.gitignore
+.idea
+*.iml
+.DS_Store
+*.log
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper.properties.bak
+
+
+
+
+
