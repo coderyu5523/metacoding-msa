@@ -1,10 +1,9 @@
-package com.metacoding.order.config;
+package com.metacoding.order.core.config;
 
 import com.metacoding.order.core.filter.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
 @Configuration
 @RequiredArgsConstructor

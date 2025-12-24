@@ -4,10 +4,9 @@ WORKDIR /var/current/app
 
 COPY . .
 
-RUN chmod +x gradlew \
- && ./gradlew clean build -x test --no-daemon \
+RUN sed -i 's/\r$//' gradlew \
+ && chmod +x gradlew \
+ && ./gradlew clean build -x test \
  && cp build/libs/*.jar application.jar
-
-EXPOSE 8082
 
 ENTRYPOINT ["java", "-jar", "application.jar"]

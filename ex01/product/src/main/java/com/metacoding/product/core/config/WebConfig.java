@@ -1,10 +1,9 @@
-package com.metacoding.product.config;
+package com.metacoding.product.core.config;
 
 import com.metacoding.product.core.filter.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 
 @Configuration
 @RequiredArgsConstructor

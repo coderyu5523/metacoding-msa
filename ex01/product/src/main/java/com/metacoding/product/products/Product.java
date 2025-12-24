@@ -26,15 +26,12 @@ public class Product {
 
     public void decreaseQuantity(int quantity) {
         if (this.quantity < quantity) {
-            throw new RuntimeException("Insufficient product quantity");
+            throw new RuntimeException("제품의 수량이 부족합니다.");
         }
         this.quantity -= quantity;
     }
 
     public void updateStatus(String status) {
-        if (status == null || status.trim().isEmpty()) {
-            throw new RuntimeException("Status cannot be null or empty");
-        }
         this.status = status;
     }
 }

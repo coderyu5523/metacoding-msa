@@ -16,7 +16,7 @@ public class UserService {
 
     public UserResponse.DTO findById(int id) {
         User user = userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+                .orElseThrow(() -> new RuntimeException("회원 정보를 찾을 수 없습니다."));
         return new UserResponse.DTO(user);
     }
 
@@ -30,8 +30,8 @@ public class UserService {
     @Transactional
     public String login(UserRequest.LoginDTO requestDTO) {
         User user = userRepository.findByUsername(requestDTO.username())
-                .orElseThrow(() -> new RuntimeException("Invalid username or password"));
-        user.validatePassword(requestDTO.password());   
+                .orElseThrow(() -> new RuntimeException("유저네임을 찾을 수 없습니다."));
+        user.passwordCheck(requestDTO.password());   
         return jwtUtil.create(user.getId(), user.getUsername());
     }
 }

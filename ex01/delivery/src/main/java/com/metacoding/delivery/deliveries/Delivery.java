@@ -28,12 +28,6 @@ public class Delivery {
     }
 
     public static Delivery create(int orderId, String address) {
-        if (orderId <= 0) {
-            throw new RuntimeException("Order ID must be greater than 0");
-        }
-        if (address == null || address.trim().isEmpty()) {
-            throw new RuntimeException("Address cannot be null or empty");
-        }
         return new Delivery(orderId, address, "PENDING");
     }
 

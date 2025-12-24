@@ -22,13 +22,9 @@ public class User {
         this.password = password;
     }
 
-    public boolean authenticate(String password) {
-        return this.password.equals(password);
-    }
-
-    public void validatePassword(String password) {
-        if (!authenticate(password)) {
-            throw new RuntimeException("Invalid username or password");
+    public void passwordCheck(String password) {
+        if (!this.password.equals(password)) {
+            throw new RuntimeException("비밀번호가 일치하지 않습니다.");
         }
     }
 }
