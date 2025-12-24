@@ -1,4 +1,4 @@
-package com.metacoding.order.config;
+package com.metacoding.order.core.config;
 
 import com.metacoding.order.core.filter.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.metacoding.user.config;
+package com.metacoding.user.core.config;
 
 import com.metacoding.user.core.filter.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
