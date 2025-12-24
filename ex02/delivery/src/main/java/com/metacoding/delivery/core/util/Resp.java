@@ -1,4 +1,4 @@
-package com.metacoding.user.core.util;
+package com.metacoding.delivery.core.util;
 
 import lombok.Data;
 import org.springframework.http.*;
