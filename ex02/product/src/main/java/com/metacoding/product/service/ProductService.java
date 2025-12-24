@@ -17,10 +17,9 @@ public class ProductService {
 
     public ProductResult getProduct(ProductCommand command) {
         Product product = productRepository.findById(command.productId())
-            .orElseThrow(() -> new RuntimeException("상품이 없습니다."));
+            .orElseThrow(() -> new RuntimeException("등록된 상품이 없습니다."));
         
-        // 재고 확인 - 도메인으로 이동
-        product.validateQuantity(command.quantity());
+        product.quantityCheck(command.quantity()); // 재고 확인
         
         return ProductResult.from(product);
     }
@@ -34,7 +33,7 @@ public class ProductService {
     @Transactional
     public void decreaseQuantity(ProductCommand command) {
         Product product = productRepository.findById(command.productId())
-            .orElseThrow(() -> new RuntimeException("상품이 없습니다."));
+            .orElseThrow(() -> new RuntimeException("등록된 상품이 없습니다."));
         product.decreaseQuantity(command.quantity());
         product.updateStatus("PENDING");
         Product savedProduct = productRepository.save(product);

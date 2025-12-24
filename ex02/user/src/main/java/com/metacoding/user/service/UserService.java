@@ -19,7 +19,7 @@ public class UserService {
 
     public UserResult findUserById(int id) {
         User user = userRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+            .orElseThrow(() -> new RuntimeException("회원 정보를 찾을 수 없습니다."));
         return UserResult.from(user);
     }
 
@@ -33,8 +33,8 @@ public class UserService {
     @Transactional
     public LoginResult login(UserCommand command) {
         User user = userRepository.findByUsername(command.username())
-            .orElseThrow(() -> new RuntimeException("Invalid username or password"));
-        user.validatePassword(command.password());
+            .orElseThrow(() -> new RuntimeException("유저네임을 찾을 수 없습니다."));
+        user.passwordCheck(command.password());
         String token = jwtUtil.create(user.getId(), user.getUsername());
         return new LoginResult(token);
     }

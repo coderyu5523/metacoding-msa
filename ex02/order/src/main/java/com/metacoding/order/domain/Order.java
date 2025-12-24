@@ -30,22 +30,10 @@ public class Order {
     }
 
     public static Order create(int userId, int productId, int quantity) {
-        if (userId <= 0) {
-            throw new RuntimeException("User ID must be greater than 0");
-        }
-        if (productId <= 0) {
-            throw new RuntimeException("Product ID must be greater than 0");
-        }
-        if (quantity <= 0) {
-            throw new RuntimeException("Quantity must be greater than 0");
-        }
         return new Order(userId, productId, quantity, "PENDING");
     }
 
     public void updateStatus(String status) {
-        if (status == null || status.trim().isEmpty()) {
-            throw new RuntimeException("Status cannot be null or empty");
-        }
         this.status = status;
         this.updatedAt = LocalDateTime.now();
     }
@@ -60,6 +48,7 @@ public class Order {
         this.updatedAt = LocalDateTime.now();
     }
 }
+
 
 
 
